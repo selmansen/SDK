@@ -1,0 +1,527 @@
+// = IMPORT
+@import "../font/fonts.css";
+@import "../cdn/css/animate";
+@import "../cdn/scss/bootstrap/bootstrap";
+@import "../cdn/scss/reset";
+@import "../cdn/css/swiper.min";
+@import "../cdn/scss/css3-mixins";
+
+
+
+body{
+    min-width:320px;
+	position:relative;
+    overflow:hidden;
+    @media screen and(max-width:$screenmd){
+        padding-top:70px;
+    }
+}
+
+/*Type start*/
+h2{
+    font-family: $fontBlack;
+    line-height: 82px;
+    b{
+        font-family: $fontLight;
+    }
+    @media screen and(max-width:$screenmd){
+        font-size:36px;
+        line-height:50px;
+    }
+}
+h3{
+    line-height: 58px;
+    b{
+        font-family: $fontBold;
+    }
+    @media screen and(max-width:$screenmd){
+        font-size:24px;
+        line-height: 34px;
+    }
+}
+h4{
+	line-height: 34px;
+}
+a{
+    color:#fff;
+    transition:color .4s;
+    &:hover{
+        color:$primary;
+    }
+}
+/*Type end*/
+
+/*btns start*/
+.btn{
+    @media screen and(max-width:$screenmd){
+        padding:6.5px 10px;
+    }
+}
+.btn-primary{
+    color:$dark;
+}
+.btn-outline-dark, .btn-outline-light{
+    min-width:170px;
+    position: relative;
+    &:before{
+        content:"";
+        width:8px;
+        height:8px;
+        transform: rotate(45deg);
+        border-right: 2px solid $dark;
+        border-top:2px solid $dark;
+        position: absolute;
+        right: 11px;
+        top: 11px;
+        transition:.4s;
+    }
+    &:hover{
+        &:before{
+            border-color:#fff;
+        }
+    }
+}
+.btn-outline-light{
+    border-color:#fff;
+    &:before{
+        border-color:#fff;
+    }
+    &:hover{
+        &:before{
+            border-color:#000;
+        }
+    }
+}
+.message{
+    font-family: $fontBook;
+}
+/*btns end*/
+
+/*header footer start*/
+header{
+    position: fixed;
+    width:100%;
+    background: $dark;
+    z-index:10;
+    top:0;
+    transition:background .4s;
+    @media screen and(max-width:$screenmd){
+        background: $dark !important;
+        border-bottom:1px solid $primary;
+    }
+    .logo{
+        width:98px;
+        transition:width .4s;
+        @media screen and(max-width:$screenmd){
+            width:66px !important;
+        }
+    }
+    .mainMenu{
+        display: flex;
+        @media screen and(max-width:$screenmd){
+            display: none;
+            .links{
+                a{
+                    display: block;
+                    padding:20px 0px;
+                    border-top:1px solid rgba(#fff, .1);
+                }
+            }
+            &.opened{
+                display: flex;
+                position:fixed;
+                top:72px;
+                width:100%;
+                left:0;
+                height:calc(100% - 70px);
+                background: $dark;
+                padding:0 30px 30px;
+                overflow-y:auto;
+                animation-duration: .6s;
+                animation-name:fadeIn;
+            }
+        }
+    }
+    .mobile-hambuger{
+        display: none;
+        position: absolute;
+        left:15px;
+        top:26px;
+        width:31px;
+        height:19px;
+        cursor: pointer;
+        @media screen and(max-width:$screenmd){
+            display: block;
+        }
+        i, &:before, &:after{
+            content:"";
+            background-color: $primary;
+            height:3px;
+            border-radius: 3px;
+            position:absolute;
+            transition:.4s;
+        }
+        i{
+            width:31px;
+            left:0;
+            top:calc(50% - 2px);
+        }
+        &:before{
+            top:0;
+            left:7px;
+            width: 19px;
+        }
+        &:after{
+            top:calc(100% - 3px);
+            left:4px;
+            width: 19px;
+        }
+        &:hover{
+            &:before{
+                width: 27px;
+            }
+            &:after{
+                width: 30px;
+            }
+            i{
+                left:-2px;
+            }
+        }
+        &.active{
+            &:before, &:after{
+                top:8px;
+                left:0;
+                width:31px;
+            }
+            i{
+                opacity: 0;
+                left:-10px;
+            }
+            &:before{
+                transform: rotate(225deg);
+            }
+            &:after{
+                transform: rotate(135deg);
+            }
+        }
+    }
+    &.fixed{
+        .logo{
+            width:98px;
+        }
+    }
+    
+}
+footer{
+    border-top:1px solid $primary;
+    .social{
+        a{
+            transition:.4s;
+            position:relative;
+            top:0;
+            &.fc{
+                width:8px;
+                height:16px;
+                background: url($img+"main/ic-fc.svg") no-repeat;
+            }
+            &.tw{
+                width:20px;
+                height:16px;
+                background: url($img+"main/ic-tw.svg") no-repeat;
+            }
+            &.ins{
+                width:16px;
+                height:16px;
+                background: url($img+"main/ic-ins.svg") no-repeat;
+            }
+            &:hover{
+                top:-3px;
+            }
+        }
+    }
+}
+/*header footer end*/
+
+
+/*Home page start*/
+.homepage header{
+    background: none;
+    .logo{
+        width:120px;
+        @media screen and(max-width:$screenmd){
+            width:66px;
+        }
+    }
+    &.fixed{
+        background: $dark;
+        border-bottom:1px solid $primary;
+        .logo{
+            width:98px;
+        }
+    }
+}
+.homebanner{
+    height:710px;
+    @media screen and(max-width:$screenmd){
+        height:255px;
+    }
+    .swiper-slide{
+        .content{
+            width: 50%;
+            animation-duration: .6s;
+            animation-delay: .4s;
+            animation-fill-mode: both;
+            opacity: 0;
+            padding-bottom:260px;
+
+            @media screen and(max-width:$screenmd){
+                padding-bottom:70px;
+                width:100%;
+            }
+            .title{
+                color:#fff;
+                border-bottom:1px solid $primary;
+                opacity: .8;
+                position:relative;
+                width: 100%;
+                @media screen and(max-width:$screenmd){
+                    width:auto;
+                }
+                &:before{
+                    content:"";
+                    width: 70%;
+                    height: 3px;
+                    bottom: -2px;
+                    right:0;
+                    background-color: $primary;
+                    position:absolute;
+                }
+            }
+            .link{
+                font-size:20px;
+                line-height: 20px;
+                position:relative;
+                padding-right:20px;
+                &:before{
+                    content:"";
+                    position:absolute;
+                    right: 0;
+                    top:7px;
+                    width:8px;
+                    height:8px;
+                    transform: rotate(45deg);
+                    border-top:2px solid #fff;
+                    border-right:2px solid #fff;
+                    transition:.4s;
+                }
+                &:hover{
+                    &:before{
+                        border-color:$primary;
+                    }
+                }
+            }
+        }
+        .project-mid-img{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 530px;
+            width:50%;
+            border:2px solid rgba($primary, .7);
+            animation-duration: .6s;
+            animation-delay: .9s;
+            animation-fill-mode: both;
+            opacity: 0;
+
+        }
+        .bg{
+            position:absolute;
+            z-index:-1;
+            top:0;
+            left:0;
+            width:100%;
+            height:calc(100% - 125px);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            &:before{
+                content:"";
+                @include bggradient(#333333, #181818);
+                width:100%;
+                height:100%;
+                z-index:-1;
+                position:absolute;
+                left:0;
+                top:0;
+                opacity: .85;
+            }
+            @media screen and(max-width:$screenmd){
+                height:100%;
+            }
+        }
+        &.swiper-slide-active{
+            .content{
+                animation-name: fadeInLeft2;
+            }
+            .project-mid-img{
+                animation-name: fadeIn;
+            }
+        }
+    }
+    .pagination{
+        position: absolute;
+        bottom: 255px;
+        justify-content: flex-end;
+        z-index: 2;
+        width: 50%;
+        padding-right: 10px;
+        .dot{
+            width:27px;
+            height:27px;
+            border:1px solid #fff;
+            opacity: .3;
+            margin:0 5px;
+            background: none;
+            border-radius: 0;
+            color: #fff;
+            font-size: 22px;
+            text-align: center;
+            line-height: 27px;
+            font-family: $fontBook;
+            transition: .4s;
+            &.swiper-pagination-bullet-active{
+                opacity: 1;
+            }
+        }
+        @media screen and(max-width:$screenmd){
+            bottom:10px;   
+            width:100%;
+            justify-content: center;
+            padding-right:0; 
+        }
+    }
+}
+.project-status{
+    position:relative;
+    &:before{
+        content:"";
+        width:50%;
+        background: $dark;
+        height:725px;
+        right:-130px;
+        top:-150px;
+        position:absolute;
+        @media screen and(max-width:$screenmd){
+            display: none;
+        }
+    }
+    .container{
+        position:relative;
+        &:after{
+            content:"";
+            width:100vw;
+            background: #f7f8f8;
+            height:990px;
+            right:15px;
+            top:-150px;
+            position:absolute;
+            z-index:-2;
+            @media screen and(max-width:$screenmd){
+                display: none;
+            }
+        }
+    }
+    .title{
+        position:relative;
+        &:before{
+            content:"";
+            width:260px;
+            height:260px;
+            position:absolute;
+            top: -83px;
+            left: -138px;
+            background: url($img+"ic-project-title.svg") no-repeat;
+            z-index: -1;
+            @media screen and(max-width:$screenmd){
+                top: -23px;
+                left: -133px;
+            }
+        }
+    }
+    
+}
+.home-projects{
+    @media screen and(max-width:$screenmd){
+        background: url($img+"home-project-banner.jpg") no-repeat center center;
+        background-size: cover;
+        border-top:3px solid $primary;
+        border-bottom:3px solid $primary;
+        position:relative;
+        &:before{
+            content:"";
+            position:absolute;
+            z-index:-1px;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: rgba(#000, .5);
+        }
+    }
+    h2{
+        color:rgba(#fff, .8);
+    }
+    .bg{
+        background: url($img+"home-project-banner.jpg") no-repeat;
+        width:944px;
+        height: 412px;
+        float: right;
+        margin-right: -270px;
+        border:3px solid $primary;
+    }
+}
+.home-media{
+    position:relative;
+    &:before{
+        content:"";
+        width:50%;
+        background: $dark;
+        height:100%;
+        left:0;
+        top:0;
+        position:absolute;
+        z-index: -1;
+        @media screen and(max-width:$screenmd){
+            display: none;
+        }
+    }
+    .content{
+        position:relative;
+        @media screen and(max-width:$screenmd){
+            &:before{
+                content: "";
+                width: 1024px;
+                background: #000;
+                height: calc(100% + 150px);
+                left: -142px;
+                top: -101px;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+    }
+    .title{
+        position:relative;
+        &:before{
+            content:"";
+            width:260px;
+            height:196px;
+            position:absolute;
+            top: -39px;
+            left: -138px;
+            background: url($img+"ic-media-title.svg") no-repeat;
+            z-index: -1;
+        }
+    }
+}
+/*Home page end*/
