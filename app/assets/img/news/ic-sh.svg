@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <ellipse cx="1.466" cy="1.173" data-name="Ellipse 1" rx="1.466" ry="1.173" transform="translate(4.62 8.827)"/>
+    <circle cx="1.466" cy="1.466" r="1.466" data-name="Ellipse 2" transform="translate(11.527 11.988)"/>
+    <circle cx="1.466" cy="1.466" r="1.466" data-name="Ellipse 3" transform="translate(11.527 5.08)"/>
+    <path d="M10 0a10 10 0 1 0 10 10A10.039 10.039 0 0 0 10 0zM8.228 10.144l2.987 1.785a2.406 2.406 0 1 1-.556 1.033l-2.8-1.676a2.352 2.352 0 1 1-.14-2.749l2.914-1.628a2.375 2.375 0 1 1 .5 1.061L8.2 9.606a1.372 1.372 0 0 1 .025.538z" data-name="Path 41"/>
+</svg>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -155,7 +156,7 @@
                 if ( message == null ){
                     const createMessage = document.createElement("div");
                     createMessage.className = "message text-danger mt-2";
-                    createMessage.innerHTML = "*Bu alanların girmesi zorunlu"; 
+                    createMessage.innerHTML = "*Bu alanların girmesi zorunludur."; 
                     form.appendChild(createMessage);
                 }
             }else{
